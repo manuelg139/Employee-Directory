@@ -1,15 +1,21 @@
 import React from "react";
 
-
-const SearchBar = (props) => {
+function SearchBar(props) {
   return (
     <form>
       <div className="form-group">
-        <input  name="search" type="text" className="form-control" placeholder="Search Employee Name" id="search"
+        <input
+          onChange={props.handleInputChange}
+          value={props.search}
+          name="Search By First Name, Last Name or Email"
+          type="text"
+          className="form-control col mx-auto w-60 text-center"
+          placeholder="Search By First Name, Last Name or Email"
+          id="search"
         />
       </div>
     </form>
   );
-};
+}
 
 export default SearchBar;

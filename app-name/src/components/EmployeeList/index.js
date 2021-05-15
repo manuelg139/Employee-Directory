@@ -7,7 +7,7 @@ function EmployeeList(props) {
   
 
   return (
-    <table>
+    <table className="col mx-auto w-60 text-center">
       <caption> Employees </caption>
       <thead>
         <tr className="text-center align-middle">

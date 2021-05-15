@@ -26,11 +26,31 @@ class Wrapper extends Component {
       .catch(err => console.log(err));
   };
 
-  
-      handleInputChange = event => {
-        event.preventDefault();
-      };
+  handleInputChange = event => {
+    const value = event.target.value;
+    this.setState({ search: value });
+    this.filterEmployees(value.toLowerCase().trim());
+  };
 
+  filterEmployees = (input) => {
+    if (input) {
+      this.setState({
+        EmployeeList: this.state.AllEmployees.filter((employee) => {
+          return (
+            employee.name.first
+              .toLowerCase()
+              .concat(" ", employee.name.last.toLowerCase())
+              .includes(input) ||
+            employee.email
+              .toLowerCase()
+              .includes(input) 
+          );
+        }),
+      });
+    } else {
+      this.setState({ EmployeeList: this.state.AllEmployees });
+    }
+  };
 
   sortBy = (event, key) => {
     const data = this.state.EmployeeList;
