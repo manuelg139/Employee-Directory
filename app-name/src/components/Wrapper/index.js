@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import API from "../../utils/API";
 import SearchBar from "../SearchBar";
+import EmployeeList from "../../components/EmployeeList";
 
 
 
@@ -27,6 +28,7 @@ class Wrapper extends Component {
         <div>   
             <SearchBar search={this.state.search} handleFormSubmit={this.handleFormSubmit}
               handleInputChange={this.handleInputChange}/>
+            <EmployeeList result={this.state.result} />
         
         </div>
         );
