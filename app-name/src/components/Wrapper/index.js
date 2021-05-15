@@ -8,27 +8,58 @@ import EmployeeList from "../../components/EmployeeList";
 class Wrapper extends Component {
     state = {
         result: [],
+        direction: {
+          name: 'ascending',
+          email: 'ascending',
+          phone: 'ascending'
+        },
+        AllEmployees: [],
+        EmployeeList: [],
       };
     
-      componentDidMount() {
-        API.search()
-          .then(res => this.setState({ 
-            result: res.data.results,
-            filteredUser: res.data.results
-           }))
-          .catch(err => console.log(err));
-      };
-    
+  componentDidMount() {
+    API.search()
+      .then(res => this.setState({ 
+        AllEmployees: res.data.results,
+        EmployeeList: res.data.results
+       }))
+      .catch(err => console.log(err));
+  };
+
+  
       handleInputChange = event => {
         event.preventDefault();
       };
+
+
+  sortBy = (event, key) => {
+    const data = this.state.EmployeeList;
+    this.setState({
+      data: data.sort((a, b) => {
+        const asc = this.state.direction[key] === 'ascending';
+        if (a[key] < b[key]) {
+            return asc ? -1 : 1;
+        } else if (a[key] > b[key]) {
+            return asc ? 1 : -1;
+        } else {
+            return 0;
+        }
+      }),
+
+      direction: {
+          [key]: this.state.direction[key] === 'ascending'
+          ? 'descending'
+          : 'ascending'
+      }
+    })
+  }
     
       render() {
         return (
         <div>   
             <SearchBar search={this.state.search} handleFormSubmit={this.handleFormSubmit}
               handleInputChange={this.handleInputChange}/>
-            <EmployeeList result={this.state.result} />
+                 <EmployeeList sortBy={this.sortBy} EmployeeList={this.state.EmployeeList} nameSort={this.state.direction['name.last']}  emailSort={this.state.direction['email']} phoneSort={this.state.direction['phone']}/>
         
         </div>
         );
