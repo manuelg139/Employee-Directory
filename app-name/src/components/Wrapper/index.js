@@ -3,8 +3,6 @@ import API from "../../utils/API";
 import SearchBar from "../SearchBar";
 import EmployeeList from "../../components/EmployeeList";
 
-
-
 class Wrapper extends Component {
     state = {
         result: [],
