@@ -35,13 +35,14 @@ https://github.com/manuelg139/Employee-Directory
 
 ### Live Link
 
-https://still-ridge-01279.herokuapp.com/
 
 ## Usage
 
 After installation type in the name or email of the employee you would like to view. You can sort the list by email and phone numbers as well.
 
 ## Media
+![README-GIF](https://user-images.githubusercontent.com/75399668/118415563-99ed7300-b670-11eb-81fd-ae2f3c6e6709.gif)
+
 
 ## Technologies Used
 
