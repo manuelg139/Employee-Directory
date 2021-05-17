@@ -35,6 +35,8 @@ https://github.com/manuelg139/Employee-Directory
 
 ### Live Link
 
+https://manuelg139.github.io/EmployeeDirectory/
+
 
 ## Usage
 
